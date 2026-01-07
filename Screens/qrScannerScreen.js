@@ -337,13 +337,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   permissionButton: {
-    backgroundColor: '#2E86AB',
+    backgroundColor: '#A5D6A7',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 10,
   },
   permissionButtonText: {
-    color: '#fff',
+    color: '#2C3E50',
     fontSize: 16,
     fontWeight: 'bold',
   },

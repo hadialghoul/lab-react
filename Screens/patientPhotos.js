@@ -642,7 +642,7 @@ export default function PatientPhotos() {
         {/* Upload indicator for local photos */}
         {item.isLocal && item.uploading && (
           <View style={styles.uploadingOverlay}>
-            <ActivityIndicator color="#5DCCBB" size="small" />
+            <ActivityIndicator color="#A5D6A7" size="small" />
             <Text style={styles.uploadingText}>Uploading...</Text>
           </View>
         )}
@@ -704,7 +704,7 @@ export default function PatientPhotos() {
       {/* Photos Grid */}
       {loading ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#5DCCBB" />
+          <ActivityIndicator size="large" color="#A5D6A7" />
           <Text style={styles.loadingText}>Loading photos...</Text>
         </View>
       ) : (
@@ -789,7 +789,7 @@ export default function PatientPhotos() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f6f7fb',
+    backgroundColor: '#E8F5E9',
   },
   header: {
     backgroundColor: '#fff',
@@ -810,11 +810,11 @@ const styles = StyleSheet.create({
   },
   patientName: {
     fontSize: 14,
-    color: '#5DCCBB',
+    color: '#A5D6A7',
     fontWeight: '600',
   },
   addButton: {
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     margin: 16,
     padding: 16,
     borderRadius: 12,
@@ -835,7 +835,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   addButtonText: {
-    color: '#fff',
+    color: '#2C3E50',
     fontSize: 16,
     fontWeight: '600',
   },

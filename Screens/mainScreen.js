@@ -117,10 +117,10 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     primaryButton: {
-        backgroundColor: '#5DCCBB', // Teal color
+        backgroundColor: '#A5D6A7', // Light green
     },
     primaryButtonText: {
-        color: '#fff',
+        color: '#2C3E50',
         fontSize: 18,
         fontWeight: '600',
         letterSpacing: 0.2,

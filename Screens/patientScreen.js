@@ -8,6 +8,7 @@ import PatientTreatmentStepsScreen from './patientTreatmentStepsScreen';
 import PatientStepsScreen from './patientStepsScreen';
 import PatientStageScreen from './patientStageScreen';
 import patientPhotos from './patientPhotos';
+import DashboardScreen from './DashboardScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
@@ -44,7 +45,7 @@ export default function PatientScreen({ route }) {
   return (
     <Tab.Navigator 
       screenOptions={{
-        tabBarActiveTintColor: "#5DCCBB",
+        tabBarActiveTintColor: "#A5D6A7",
         tabBarInactiveTintColor: "#8E8E93",
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
@@ -79,12 +80,20 @@ export default function PatientScreen({ route }) {
             onPress={handleLogout}
             style={{ marginRight: 15, padding: 8 }}
           >
-            <Text style={{ color: '#5DCCBB', fontSize: 16, fontWeight: '600' }}>Logout</Text>
+            <Text style={{ color: '#A5D6A7', fontSize: 16, fontWeight: '600' }}>Logout</Text>
           </TouchableOpacity>
         ),
       }}
     >
-      
+      <Tab.Screen 
+        name="Dashboard" 
+        component={DashboardScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <Text style={{ fontSize: 26 }}>{focused ? '🏠' : '🏡'}</Text>
+          ),
+        }}
+      />
       <Tab.Screen 
         name="My Treatment" 
         component={PatientStepsScreen}
@@ -95,7 +104,6 @@ export default function PatientScreen({ route }) {
           ),
         }}
       />
-
     </Tab.Navigator>
   )
 }

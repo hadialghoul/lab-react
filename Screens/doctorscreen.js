@@ -10,6 +10,7 @@ import PatientStageScreen from './patientStageScreen';
 import DoctorPatientSteps from './doctorpatientSteps';
 import DoctorPatientTreatmentScreen from './doctorPatientTreatment';
 import DoctorReportsScreen from './doctorReportsScreen';
+import DashboardScreen from './DashboardScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
@@ -42,7 +43,7 @@ export default function DoctorScreen() {
   return (
     <Tab.Navigator 
       screenOptions={{
-        tabBarActiveTintColor: "#5DCCBB",
+        tabBarActiveTintColor: "#A5D6A7",
         tabBarInactiveTintColor: "#8E8E93",
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
@@ -77,11 +78,20 @@ export default function DoctorScreen() {
             onPress={handleLogout}
             style={{ marginRight: 15, padding: 8 }}
           >
-            <Text style={{ color: '#5DCCBB', fontSize: 16, fontWeight: '600' }}>Logout</Text>
+            <Text style={{ color: '#A5D6A7', fontSize: 16, fontWeight: '600' }}>Logout</Text>
           </TouchableOpacity>
         ),
       }}
     >
+      <Tab.Screen 
+        name="Dashboard" 
+        component={DashboardScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <Text style={{ fontSize: 28 }}>{focused ? '🏠' : '🏡'}</Text>
+          ),
+        }}
+      />
       <Tab.Screen 
         name="Patients" 
         component={DoctorPatientTreatmentScreen}

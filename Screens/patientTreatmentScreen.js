@@ -253,7 +253,7 @@ export default function PatientTreatmentScreen() {
           <Text style={styles.heading}>My Patients</Text>
         </View>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#5DCCBB" />
+          <ActivityIndicator size="large" color="#A5D6A7" />
           <Text style={styles.loadingText}>Loading patients...</Text>
         </View>
       </SafeAreaView>
@@ -277,7 +277,7 @@ export default function PatientTreatmentScreen() {
           style={styles.headerAction}
           onPress={() => fetchPatients()}
         >
-          <Icon name="refresh" size={24} color="#5DCCBB" />
+          <Icon name="refresh" size={24} color="#A5D6A7" />
         </TouchableOpacity>
       </View>
 
@@ -299,8 +299,8 @@ export default function PatientTreatmentScreen() {
               <RefreshControl
                 refreshing={refreshing}
                 onRefresh={onRefresh}
-                colors={['#5DCCBB']}
-                tintColor="#5DCCBB"
+                colors={['#A5D6A7']}
+                tintColor="#A5D6A7"
               />
             }
             ListEmptyComponent={renderEmptyState}
@@ -314,7 +314,7 @@ export default function PatientTreatmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#E8F5E9',
   },
   header: {
     backgroundColor: '#fff',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -464,13 +464,13 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   refreshButton: {
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 8,
   },
   refreshButtonText: {
-    color: '#fff',
+    color: '#2C3E50',
     fontSize: 16,
     fontWeight: '600',
   },

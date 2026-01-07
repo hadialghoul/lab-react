@@ -67,7 +67,8 @@ export default function ActivationScreen({ navigation }) {
 const styles = StyleSheet.create({
   containerView: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#E8F5E9',
   },
   loginScreenContainer: {
     flex: 1,
@@ -86,15 +87,14 @@ const styles = StyleSheet.create({
     height: 43,
     fontSize: 14,
     borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#eaeaea",
-    backgroundColor: "#fafafa",
+    borderWidth: 0,
+    backgroundColor: "#F5F5F5",
     paddingLeft: 10,
     marginTop: 5,
     marginBottom: 5,
   },
   loginButton: {
-    backgroundColor: "#5DCCBB",
+    backgroundColor: "#A5D6A7",
     borderRadius: 5,
     height: 45,
     marginTop: 10,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   link: {
     textAlign: "center",
     marginTop: 20,
-    color: "#5DCCBB"
+    color: "#A5D6A7"
   },
   errorText: {
     color: "red",

@@ -72,7 +72,7 @@ export default function PatientStageScreen({ route }) {
   return (
     <View style={styles.container}>
       {loading && (
-        <ActivityIndicator size="large" color="#5DCCBB" />
+        <ActivityIndicator size="large" color="#A5D6A7" />
       )}
       
       {error && (
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#E8F5E9',
   },
   text: {
     fontSize: 20,

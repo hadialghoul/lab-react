@@ -651,7 +651,7 @@ export default function PatientStepsScreen() {
 
 const styles = StyleSheet.create({
   list: { 
-    backgroundColor: '#f6f7fb', 
+    backgroundColor: '#E8F5E9', 
     flex: 1 
   },
   card: { 
@@ -672,7 +672,7 @@ const styles = StyleSheet.create({
   },
   stepBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#E6F9F7',
+    backgroundColor: '#C8E6C9',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -681,7 +681,7 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#5DCCBB',
+    color: '#2C3E50',
   },
   title: { 
     fontSize: 22, 
@@ -961,13 +961,13 @@ const styles = StyleSheet.create({
     textAlign: 'center' 
   },
   retryBtn: { 
-    backgroundColor: '#5DCCBB', 
+    backgroundColor: '#A5D6A7', 
     paddingHorizontal: 18, 
     paddingVertical: 12, 
     borderRadius: 8 
   },
   retryText: { 
-    color: '#fff', 
+    color: '#2C3E50', 
     fontWeight: '600' 
   },
   errorText: { 
@@ -981,7 +981,7 @@ const styles = StyleSheet.create({
   // Patient Photos Button
   patientPhotosButton: {
     marginTop: 16,
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     borderRadius: 12,
     paddingHorizontal: 20,
     paddingVertical: 16,
@@ -1000,14 +1000,14 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     flex: 1,
-    color: '#fff',
+    color: '#2C3E50',
     fontSize: 16,
     fontWeight: '600',
     textAlign: 'center',
   },
   buttonArrow: {
     fontSize: 18,
-    color: '#fff',
+    color: '#2C3E50',
     fontWeight: 'bold',
   },
   

@@ -142,7 +142,7 @@ export default function CustomCameraScreen({ navigation, route }) {
             cy={height / 2 - 50}
             rx={width * 0.35}
             ry={height * 0.28}
-            stroke="#5DCCBB"
+            stroke="#A5D6A7"
             strokeWidth="4"
             fill="none"
           />
@@ -186,7 +186,7 @@ export default function CustomCameraScreen({ navigation, route }) {
         {/* Processing Overlay */}
         {processing && (
           <View style={styles.processingOverlay}>
-            <ActivityIndicator size="large" color="#5DCCBB" />
+            <ActivityIndicator size="large" color="#A5D6A7" />
             <Text style={styles.processingText}>Processing photo...</Text>
           </View>
         )}
@@ -296,13 +296,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   permissionButton: {
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     paddingHorizontal: 30,
     paddingVertical: 15,
     borderRadius: 10,
   },
   permissionButtonText: {
-    color: '#fff',
+    color: '#2C3E50',
     fontSize: 16,
     fontWeight: '600',
   },

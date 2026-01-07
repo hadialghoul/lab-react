@@ -136,7 +136,7 @@ export default function PatientLogin({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#E8F5E9',
   },
   mainWrapper: {
     flex: 1,
@@ -191,10 +191,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F5F5F5',
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: '#E1E8ED',
+    borderWidth: 0,
     paddingHorizontal: 15,
     marginBottom: 20,
     height: 56,
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
     color: '#2C3E50',
   },
   loginButton: {
-    backgroundColor: '#5DCCBB',
+    backgroundColor: '#A5D6A7',
     borderRadius: 12,
     height: 56,
     justifyContent: 'center',
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   loginButtonText: {
-    color: '#FFFFFF',
+    color: '#2C3E50',
     fontSize: 18,
     fontWeight: '600',
   },
