@@ -14,8 +14,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.smilereign.app",
-      "buildNumber": "30",
+      "bundleIdentifier": "com.calwestdental.smilereign",
+      "buildNumber": "31",
       "infoPlist": {
         "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to take photos and scan QR codes.",
         "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select photos for treatment progress tracking.",
