@@ -32,6 +32,7 @@
     "production": {
       "ios": {
         "appleId": "CalWestDentalLab@att.net",
+        "ascAppId": "6758167596",
         "appleTeamId": "X5FRZP29C6"
       },
       "android": {
