@@ -1,6 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Colors from './theme/colors';
+import ErrorBoundary from './components/ErrorBoundary';
+
+const theme = Colors?.primary ? Colors : { primary: '#C8E6C9', primaryLight: '#C8E6C9', primaryLighter: '#C8E6C9' };
 import MainScreen from './Screens/mainScreen';
 import PatientLogin from './Screens/patientLoginScreen';
 import DoctorLogin from './Screens/doctorLoginScreen';
@@ -29,11 +32,14 @@ import Config from './config';
 
 const WakeUpBackend = () => {
   useEffect(() => {
-    // Ping backend to wake it up from sleep (Render free tier)
-    fetch(`${Config.BASE_URL}/accounts/me/`, {
-      method: 'GET',
-      headers: { 'Accept': 'application/json' },
-    }).catch(() => console.log('Backend wake-up ping sent'));
+    try {
+      const url = Config?.BASE_URL ? `${Config.BASE_URL}/accounts/me/` : null;
+      if (url) {
+        fetch(url, { method: 'GET', headers: { Accept: 'application/json' } }).catch(() => {});
+      }
+    } catch (e) {
+      // ignore – don't crash app on wake-up failure
+    }
   }, []);
   return null;
 };
@@ -41,11 +47,12 @@ const WakeUpBackend = () => {
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer >
-      <WakeUpBackend />
+    <ErrorBoundary>
+      <NavigationContainer>
+        <WakeUpBackend />
       <Stack.Navigator
         screenOptions={{
-          headerTintColor: Colors.primary,
+          headerTintColor: theme.primary,
           headerTitleStyle: {
             fontWeight: '600',
           },
@@ -55,18 +62,19 @@ export default function App() {
         <Stack.Screen name="login-patient" component={PatientLogin} options={{ headerShown: false }} />
         <Stack.Screen name="login-doctor" component={DoctorLogin} options={{ headerShown: false }} />
         <Stack.Screen name="register-patient" component={PatientRegister} options={{ headerShown: false }} />
-        <Stack.Screen name="activate" component={ActivationScreen} options={{ headerTintColor: Colors.primary }} />
+        <Stack.Screen name="activate" component={ActivationScreen} options={{ headerTintColor: theme.primary }} />
         <Stack.Screen name="doctor" component={DoctorScreen} options={{ headerShown: false }} />
         <Stack.Screen name="patient" component={PatientScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="PatientStepsScreen" component={PatientStepsScreen} options={{ title: 'Treatment Steps', headerTintColor: Colors.primary }} />
+        <Stack.Screen name="PatientStepsScreen" component={PatientStepsScreen} options={{ title: 'Treatment Steps', headerTintColor: theme.primary }} />
         <Stack.Screen name="qr-scanner" component={QRScannerScreen} options={{ headerShown: false }} />
         <Stack.Screen name="custom-camera" component={CustomCameraScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="doctor-patient-steps" component={DoctorPatientSteps} options={{ title: 'Patient Steps', headerTintColor: Colors.primary }} />
-        <Stack.Screen name="patient-stage" component={PatientStageScreen} options={{ title: 'Patient Stage', headerTintColor: Colors.primary }} />
-        <Stack.Screen name="patient-photos" component={PatientPhotos} options={{ title: 'Photos', headerTintColor: Colors.primary }} />
+        <Stack.Screen name="doctor-patient-steps" component={DoctorPatientSteps} options={{ title: 'Patient Steps', headerTintColor: theme.primary }} />
+        <Stack.Screen name="patient-stage" component={PatientStageScreen} options={{ title: 'Patient Stage', headerTintColor: theme.primary }} />
+        <Stack.Screen name="patient-photos" component={PatientPhotos} options={{ title: 'Photos', headerTintColor: theme.primary }} />
    
       </Stack.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
+    </ErrorBoundary>
   );
 }
 
