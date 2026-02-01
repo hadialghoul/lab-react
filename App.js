@@ -1,7 +1,9 @@
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Colors from './theme/colors';
 import ErrorBoundary from './components/ErrorBoundary';
+import Config from './config';
 
 const theme = Colors?.primary ? Colors : { primary: '#C8E6C9', primaryLight: '#C8E6C9', primaryLighter: '#C8E6C9' };
 import MainScreen from './Screens/mainScreen';
@@ -25,10 +27,6 @@ if (!__DEV__) {
   console.info = () => {};
   // Keep console.warn and console.error for critical issues
 }
-
-// Wake up the Render backend on app start (prevents cold start delays)
-import React, { useEffect } from 'react';
-import Config from './config';
 
 const WakeUpBackend = () => {
   useEffect(() => {

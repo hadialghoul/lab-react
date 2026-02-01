@@ -1,11 +1,11 @@
 import { StyleSheet, View, Image, Text, Dimensions, StatusBar, TouchableOpacity, Linking } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import main from '../assets/main.jpeg';
-import icon from '../assets/icon.jpeg';
 import Colors from '../theme/colors';
 
-const { width, height } = Dimensions.get('window');
+const win = Dimensions.get('window') || {};
+const width = win.width || 375;
+const height = win.height || 812;
 
 export default function MainScreen() {
     const navigation = useNavigation();
@@ -15,12 +15,12 @@ export default function MainScreen() {
             <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
 
             {/* Hero image - full width, top portion */}
-            <Image style={styles.backgroundImage} source={main} resizeMode="cover" />
+            <Image style={styles.backgroundImage} source={require('../assets/main.jpeg')} resizeMode="cover" />
 
             {/* White rounded card over the bottom */}
             <View style={styles.card}>
                 <View style={styles.logoRow}>
-                    <Image style={styles.logo} source={icon} resizeMode="contain" />
+                    <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
                     <Text style={styles.appName}>SmileReign</Text>
                 </View>
 
