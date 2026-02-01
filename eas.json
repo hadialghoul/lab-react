@@ -20,7 +20,8 @@
     "production": {
       "ios": {
         "autoIncrement": true,
-        "buildConfiguration": "Release"
+        "buildConfiguration": "Release",
+        "image": "macos-sequoia-15.5-xcode-26.0"
       },
       "android": {
         "autoIncrement": true,
