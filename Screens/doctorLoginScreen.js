@@ -3,6 +3,7 @@ import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvo
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from '../config';
+import Colors from '../theme/colors';
 
 export default function DoctorLogin({ navigation }) {
   const [email, setEmail] = useState('');
@@ -132,7 +133,7 @@ export default function DoctorLogin({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   mainWrapper: {
     flex: 1,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 18,
-    color: '#2C3E50',
+    color: Colors.text,
     fontWeight: '600',
   },
   logo: {
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: '800',
-    color: '#2C3E50',
+    color: Colors.text,
     textAlign: 'center',
     marginBottom: 10,
   },
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   formCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     padding: 30,
     shadowColor: '#000',
@@ -201,10 +202,10 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: '#2C3E50',
+    color: Colors.text,
   },
   loginButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     borderRadius: 12,
     height: 56,
     justifyContent: 'center',
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   loginButtonText: {
-    color: '#2C3E50',
+    color: Colors.text,
     fontSize: 18,
     fontWeight: '600',
   },

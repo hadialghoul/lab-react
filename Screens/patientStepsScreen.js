@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Config from '../config';
 import CachedImage from '../components/CachedImage';
+import Colors from '../theme/colors';
 
 const BASE_URL = Config.BASE_URL; // Dynamic URL based on environment
 const REQUEST_TIMEOUT_MS = 7000;
@@ -651,7 +652,7 @@ export default function PatientStepsScreen() {
 
 const styles = StyleSheet.create({
   list: { 
-    backgroundColor: '#E8F5E9', 
+    backgroundColor: Colors.primaryLight, 
     flex: 1 
   },
   card: { 
@@ -672,7 +673,7 @@ const styles = StyleSheet.create({
   },
   stepBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#C8E6C9',
+    backgroundColor: Colors.primaryLighter,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -961,7 +962,7 @@ const styles = StyleSheet.create({
     textAlign: 'center' 
   },
   retryBtn: { 
-    backgroundColor: '#A5D6A7', 
+    backgroundColor: Colors.primary, 
     paddingHorizontal: 18, 
     paddingVertical: 12, 
     borderRadius: 8 
@@ -981,7 +982,7 @@ const styles = StyleSheet.create({
   // Patient Photos Button
   patientPhotosButton: {
     marginTop: 16,
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     borderRadius: 12,
     paddingHorizontal: 20,
     paddingVertical: 16,

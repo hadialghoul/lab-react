@@ -1,54 +1,56 @@
 import { StyleSheet, View, Image, Text, Dimensions, StatusBar, TouchableOpacity, Linking } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import main5 from "../assets/main5.jpeg";
+import main from '../assets/main.jpeg';
+import icon from '../assets/icon.jpeg';
+import Colors from '../theme/colors';
 
 const { width, height } = Dimensions.get('window');
 
 export default function MainScreen() {
     const navigation = useNavigation();
-    
+
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
-            
-            {/* Background Image */}
-            <Image style={styles.backgroundImage} source={main5} />
-            
-            {/* Dark overlay for readability */}
-            <View style={styles.gradientOverlay} />
-            
-            {/* Content Container */}
-            <View style={styles.contentContainer}>
-                {/* Header Section */}
-                <View style={styles.headerSection}>
-                    <Text style={styles.appTitle}>SMILEREIGN</Text>
-                    
+            <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
+
+            {/* Hero image - full width, top portion */}
+            <Image style={styles.backgroundImage} source={main} resizeMode="cover" />
+
+            {/* White rounded card over the bottom */}
+            <View style={styles.card}>
+                <View style={styles.logoRow}>
+                    <Image style={styles.logo} source={icon} resizeMode="contain" />
+                    <Text style={styles.appName}>SmileReign</Text>
                 </View>
-                 {/* Spacer to position buttons lower */}
-                     <View style={{ height: 440 }} />
 
-                     {/* Button Section */}
-                     <View style={styles.buttonContainer}>
-                         <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={{ width: '100%', alignItems: 'center' }}>
-                             <View style={[styles.button, styles.primaryButton]}>
-                                 <Text style={styles.primaryButtonText}>Log in</Text>
-                             </View>
-                         </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('login-doctor')}
+                    activeOpacity={0.8}
+                    style={styles.buttonWrap}
+                >
+                    <View style={[styles.button, styles.primaryButton]}>
+                        <Text style={styles.buttonText}>Login</Text>
+                    </View>
+                </TouchableOpacity>
 
-                         <TouchableOpacity onPress={() => navigation.navigate('register-patient')} activeOpacity={0.8} style={{ width: '100%', alignItems: 'center' }}>
-                             <View style={[styles.button, styles.secondaryButton]}>
-                                 <Text style={styles.secondaryButtonText}>Create account</Text>
-                             </View>
-                         </TouchableOpacity>
-                     </View>
-                 
-                 {/* Footer: Privacy Policy link - positioned lower */}
-                 <View style={styles.footerSection}>
-                     <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7}>
-                         <Text style={styles.footerText}>Privacy Policy</Text>
-                     </TouchableOpacity>
-                 </View>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('register-patient')}
+                    activeOpacity={0.8}
+                    style={styles.buttonWrap}
+                >
+                    <View style={[styles.button, styles.primaryButton]}>
+                        <Text style={styles.buttonText}>Create account</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')}
+                    activeOpacity={0.7}
+                    style={styles.footerLink}
+                >
+                    <Text style={styles.footerText}>Privacy Policy</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -57,98 +59,70 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
+        backgroundColor: Colors.primaryLight,
     },
     backgroundImage: {
         position: 'absolute',
+        top: 0,
+        left: 0,
         width: width,
-        height: height,
-        resizeMode: 'cover',
+        height: height * 0.55,
     },
-    gradientOverlay: {
+    card: {
         position: 'absolute',
-        width: width,
-        height: height,
-        backgroundColor: 'rgba(0,0,0,0.45)'
-    },
-     contentContainer: {
-         flex: 1,
-         alignItems: 'center',
-         paddingTop: StatusBar.currentHeight + 30,
-         paddingHorizontal: 30,
-     },
-    headerSection: {
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#FFFFFF',
+        borderTopLeftRadius: 28,
+        borderTopRightRadius: 28,
+        paddingHorizontal: 28,
+        paddingTop: 32,
+        paddingBottom: 40,
+        minHeight: height * 0.5,
         alignItems: 'center',
-        marginTop: 20, // keep title near the top
     },
-    appTitle: {
-        fontSize: 42,
-        fontWeight: 'bold',
-        color: '#fff',
-        textAlign: 'center',
-        marginBottom: 10,
-        textShadowColor: 'rgba(0, 0, 0, 0.5)',
-        textShadowOffset: { width: 2, height: 2 },
-        textShadowRadius: 4,
+    logoRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 32,
     },
-    subtitle: {
-        fontSize: 18,
-        color: '#f0f0f0',
-        textAlign: 'center',
-        fontWeight: '300',
-        letterSpacing: 1,
+    logo: {
+        width: 48,
+        height: 48,
+        marginRight: 12,
     },
-     buttonContainer: {
-         width: '100%',
-         alignItems: 'center',
-         marginBottom: 20,
-     },
+    appName: {
+        fontSize: 24,
+        fontWeight: '700',
+        color: Colors.text,
+    },
+    buttonWrap: {
+        width: '100%',
+        alignItems: 'center',
+        marginBottom: 14,
+    },
     button: {
-        width: width * 0.84,
-        height: 50,
-        borderRadius: 6,
-        marginVertical: 10,
+        width: '100%',
+        maxWidth: width - 56,
+        height: 52,
+        borderRadius: 14,
         justifyContent: 'center',
         alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
-        elevation: 3,
     },
     primaryButton: {
-        backgroundColor: '#A5D6A7', // Light green
+        backgroundColor: Colors.primary,
     },
-    primaryButtonText: {
-        color: '#2C3E50',
-        fontSize: 18,
+    buttonText: {
+        color: Colors.text,
+        fontSize: 17,
         fontWeight: '600',
-        letterSpacing: 0.2,
     },
-    secondaryButton: {
-        backgroundColor: 'transparent',
-        borderWidth: 1.5,
-        borderColor: '#FFFFFF',
+    footerLink: {
+        marginTop: 24,
     },
-    secondaryButtonText: {
-        color: '#FFFFFF',
-        fontSize: 18,
-        fontWeight: '600',
-        letterSpacing: 0.2,
-    },
-     footerSection: {
-         alignItems: 'center',
-         marginTop: 100,
-     },
     footerText: {
-        color: '#ccc',
-        fontSize: 16,
-        textAlign: 'center',
-    },
-    // floatingButton removed to restore centered layout
-    signupLink: {
-        color: '#4A90E2',
-        fontWeight: '600',
-        textDecorationLine: 'underline',
+        color: Colors.textMuted,
+        fontSize: 14,
     },
 });

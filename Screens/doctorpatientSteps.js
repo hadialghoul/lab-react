@@ -385,7 +385,7 @@ export default function DoctorPatientSteps() {
   if (loading) {
     return (
       <SafeAreaView style={styles.center}>
-        <ActivityIndicator size="large" color="#A5D6A7" />
+        <ActivityIndicator size="large" color={Colors.primary} />
         <Text style={styles.loadingText}>Loading treatment steps...</Text>
       </SafeAreaView>
     );
@@ -480,7 +480,7 @@ export default function DoctorPatientSteps() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   header: {
     backgroundColor: '#fff',
@@ -704,7 +704,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   retryBtn: { 
-    backgroundColor: '#A5D6A7', 
+    backgroundColor: Colors.primary, 
     paddingHorizontal: 20, 
     paddingVertical: 12, 
     borderRadius: 10 

@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Config from '../config';
 import CachedImage from '../components/CachedImage';
+import Colors from '../theme/colors';
 
 const BASE_URL = Config.BASE_URL; // Dynamic URL based on environment
 
@@ -642,7 +643,7 @@ export default function PatientPhotos() {
         {/* Upload indicator for local photos */}
         {item.isLocal && item.uploading && (
           <View style={styles.uploadingOverlay}>
-            <ActivityIndicator color="#A5D6A7" size="small" />
+            <ActivityIndicator color={Colors.primary} size="small" />
             <Text style={styles.uploadingText}>Uploading...</Text>
           </View>
         )}
@@ -704,7 +705,7 @@ export default function PatientPhotos() {
       {/* Photos Grid */}
       {loading ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#A5D6A7" />
+          <ActivityIndicator size="large" color={Colors.primary} />
           <Text style={styles.loadingText}>Loading photos...</Text>
         </View>
       ) : (
@@ -789,7 +790,7 @@ export default function PatientPhotos() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   header: {
     backgroundColor: '#fff',
@@ -810,11 +811,11 @@ const styles = StyleSheet.create({
   },
   patientName: {
     fontSize: 14,
-    color: '#A5D6A7',
+    color: Colors.primary,
     fontWeight: '600',
   },
   addButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     margin: 16,
     padding: 16,
     borderRadius: 12,

@@ -262,7 +262,7 @@ export default function PatientTreatmentStepsScreen() {
   if (loading) {
     return (
       <SafeAreaView style={styles.center}>
-        <ActivityIndicator size="large" color="#A5D6A7" />
+        <ActivityIndicator size="large" color={Colors.primary} />
         <Text style={styles.loadingText}>Loading your treatment plan...</Text>
       </SafeAreaView>
     );
@@ -313,10 +313,10 @@ export default function PatientTreatmentStepsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   list: { 
-    backgroundColor: '#E8F5E9', 
+    backgroundColor: Colors.primaryLight, 
     flex: 1 
   },
   card: { 
@@ -359,7 +359,7 @@ const styles = StyleSheet.create({
     marginTop: 6 
   },
   photoCount: { 
-    color: '#A5D6A7', 
+    color: Colors.primary, 
     fontSize: 12, 
     fontWeight: '600', 
     marginTop: 4 
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
     textAlign: 'center' 
   },
   retryBtn: { 
-    backgroundColor: '#A5D6A7', 
+    backgroundColor: Colors.primary, 
     paddingHorizontal: 18, 
     paddingVertical: 8, 
     borderRadius: 8 

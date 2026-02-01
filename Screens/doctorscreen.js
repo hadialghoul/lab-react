@@ -13,6 +13,7 @@ import DoctorReportsScreen from './doctorReportsScreen';
 import DashboardScreen from './DashboardScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import Colors from '../theme/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ export default function DoctorScreen() {
   return (
     <Tab.Navigator 
       screenOptions={{
-        tabBarActiveTintColor: "#A5D6A7",
+        tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#8E8E93",
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
@@ -78,7 +79,7 @@ export default function DoctorScreen() {
             onPress={handleLogout}
             style={{ marginRight: 15, padding: 8 }}
           >
-            <Text style={{ color: '#A5D6A7', fontSize: 16, fontWeight: '600' }}>Logout</Text>
+            <Text style={{ color: Colors.primary, fontSize: 16, fontWeight: '600' }}>Logout</Text>
           </TouchableOpacity>
         ),
       }}

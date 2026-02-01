@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, Dimensions, ActivityIn
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { Svg, Defs, Mask, Rect, Ellipse } from 'react-native-svg';
 import * as ImageManipulator from 'expo-image-manipulator';
+import Colors from '../theme/colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -142,7 +143,7 @@ export default function CustomCameraScreen({ navigation, route }) {
             cy={height / 2 - 50}
             rx={width * 0.35}
             ry={height * 0.28}
-            stroke="#A5D6A7"
+            stroke={Colors.primary}
             strokeWidth="4"
             fill="none"
           />
@@ -186,7 +187,7 @@ export default function CustomCameraScreen({ navigation, route }) {
         {/* Processing Overlay */}
         {processing && (
           <View style={styles.processingOverlay}>
-            <ActivityIndicator size="large" color="#A5D6A7" />
+            <ActivityIndicator size="large" color={Colors.primary} />
             <Text style={styles.processingText}>Processing photo...</Text>
           </View>
         )}
@@ -296,7 +297,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   permissionButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 30,
     paddingVertical: 15,
     borderRadius: 10,

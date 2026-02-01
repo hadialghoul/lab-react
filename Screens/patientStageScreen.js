@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, Button, ActivityIndicator } from 'react-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import Config from '../config';
+import Colors from '../theme/colors';
 
 export default function PatientStageScreen({ route }) {
   const { patientId } = route.params || {};
@@ -72,7 +73,7 @@ export default function PatientStageScreen({ route }) {
   return (
     <View style={styles.container}>
       {loading && (
-        <ActivityIndicator size="large" color="#A5D6A7" />
+        <ActivityIndicator size="large" color={Colors.primary} />
       )}
       
       {error && (
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   text: {
     fontSize: 20,

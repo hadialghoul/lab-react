@@ -16,6 +16,7 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Config from '../config';
+import Colors from '../theme/colors';
 
 export default function PatientTreatmentScreen() {
   const [patients, setPatients] = useState([]);
@@ -215,7 +216,7 @@ export default function PatientTreatmentScreen() {
       )}
       
       <View style={styles.statusContainer}>
-        <View style={[styles.statusDot, { backgroundColor: '#4CAF50' }]} />
+        <View style={[styles.statusDot, { backgroundColor: Colors.primary }]} />
         <Text style={styles.statusText}>Active</Text>
       </View>
     </TouchableOpacity>
@@ -253,7 +254,7 @@ export default function PatientTreatmentScreen() {
           <Text style={styles.heading}>My Patients</Text>
         </View>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#A5D6A7" />
+          <ActivityIndicator size="large" color={Colors.primary} />
           <Text style={styles.loadingText}>Loading patients...</Text>
         </View>
       </SafeAreaView>
@@ -277,7 +278,7 @@ export default function PatientTreatmentScreen() {
           style={styles.headerAction}
           onPress={() => fetchPatients()}
         >
-          <Icon name="refresh" size={24} color="#A5D6A7" />
+          <Icon name="refresh" size={24} color={Colors.primary} />
         </TouchableOpacity>
       </View>
 
@@ -299,8 +300,8 @@ export default function PatientTreatmentScreen() {
               <RefreshControl
                 refreshing={refreshing}
                 onRefresh={onRefresh}
-                colors={['#A5D6A7']}
-                tintColor="#A5D6A7"
+                colors={[Colors.primary]}
+                tintColor={Colors.primary}
               />
             }
             ListEmptyComponent={renderEmptyState}
@@ -314,7 +315,7 @@ export default function PatientTreatmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   header: {
     backgroundColor: '#fff',
@@ -377,7 +378,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -430,7 +431,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 14,
-    color: '#4CAF50',
+    color: Colors.primary,
     fontWeight: '500',
   },
   loadingContainer: {
@@ -464,7 +465,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   refreshButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 8,

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   containerView: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   loginScreenContainer: {
     flex: 1,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   loginButton: {
-    backgroundColor: "#A5D6A7",
+    backgroundColor: Colors.primary,
     borderRadius: 5,
     height: 45,
     marginTop: 10,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   link: {
     textAlign: "center",
     marginTop: 20,
-    color: "#A5D6A7"
+    color: Colors.primary
   },
   errorText: {
     color: "red",

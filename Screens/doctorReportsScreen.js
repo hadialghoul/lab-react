@@ -15,6 +15,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import Config from '../config';
+import Colors from '../theme/colors';
 
 const BASE_URL = Config.BASE_URL; // Dynamic URL based on environment
 const REQUEST_TIMEOUT_MS = 10000;
@@ -296,7 +297,7 @@ export default function DoctorReportsScreen() {
           <Text style={styles.headerTitle}>Patient Reports</Text>
         </View>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#A5D6A7" />
+          <ActivityIndicator size="large" color={Colors.primary} />
           <Text style={styles.loadingText}>Loading patient reports...</Text>
         </View>
       </SafeAreaView>
@@ -360,7 +361,7 @@ export default function DoctorReportsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   header: {
     backgroundColor: '#fff',
@@ -376,7 +377,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#A5D6A7',
+    color: Colors.primary,
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -446,12 +447,12 @@ const styles = StyleSheet.create({
   },
   reportsCount: {
     fontSize: 12,
-    color: '#A5D6A7',
+    color: Colors.primary,
     fontWeight: '600',
     marginTop: 4,
   },
   downloadButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 8,

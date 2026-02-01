@@ -11,6 +11,7 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
+import Colors from '../theme/colors';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const SLIDER_WIDTH = SCREEN_WIDTH - 72; // Account for padding and margins
@@ -235,21 +236,34 @@ export default function DashboardScreen() {
           </View>
         </View>
 
-        {/* About Us Section */}
+        {/* About SmileReign Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <View style={styles.sectionIconContainer}>
               <Text style={styles.sectionIcon}>ℹ️</Text>
             </View>
-            <Text style={styles.sectionTitle}>About Us</Text>
+            <Text style={styles.sectionTitle}>About SmileReign</Text>
           </View>
           <View style={styles.aboutContainer}>
             <Text style={styles.aboutText}>
-              Something about the lab and whatever Something about the lab and whatever 
-              Something about the lab and whatever Something about the lab and whatever 
-              Something about the lab and whatever Something about the lab and whatever 
-              Something about the lab and whatever Something about the lab and whatever.
+              SmileReign was created to make the smile journey simpler, clearer, and more connected—for both providers and patients. Powered by CalWest Dental Lab, the platform brings together trusted lab expertise and modern digital tools in one seamless experience.
             </Text>
+            <Text style={styles.aboutText}>
+              We know that behind every case is a real person, real expectations, and real timelines. That's why SmileReign is built to support clear communication, smooth collaboration, and confidence at every step—from planning to final results. With CalWest Dental Lab behind the scenes, you're supported by a team with years of hands-on experience and a commitment to quality you can rely on.
+            </Text>
+            <Text style={styles.aboutText}>
+              At the end of the day, SmileReign isn't just about technology. It's about making the process feel easier, more transparent, and more human—so everyone involved can focus on what matters most: creating beautiful, confident smiles.
+            </Text>
+            <Text style={styles.aboutTagline}>SmileReign — powered by CalWest Dental Lab.</Text>
+            <View style={styles.aboutLinks}>
+              <TouchableOpacity onPress={openInstagram} activeOpacity={0.7}>
+                <Text style={styles.aboutLink}>Instagram</Text>
+              </TouchableOpacity>
+              <Text style={styles.aboutLinkDivider}> • </Text>
+              <TouchableOpacity onPress={openTikTok} activeOpacity={0.7}>
+                <Text style={styles.aboutLink}>TikTok</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
 
@@ -293,7 +307,7 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   contentContainer: {
     padding: 20,
@@ -321,7 +335,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 12,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -364,14 +378,14 @@ const styles = StyleSheet.create({
     color: '#1A252F',
   },
   tutorialButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     borderRadius: 14,
     paddingVertical: 14,
     paddingHorizontal: 24,
     alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#A5D6A7',
+    shadowColor: Colors.primary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -401,7 +415,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#E8F5E9',
+    borderColor: Colors.primaryLight,
     position: 'relative',
     overflow: 'hidden',
   },
@@ -433,7 +447,7 @@ const styles = StyleSheet.create({
   },
   placeholderText: {
     fontSize: 40,
-    color: '#C8E6C9',
+    color: Colors.primaryLighter,
     opacity: 0.5,
   },
   section: {
@@ -489,7 +503,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#E8F5E9',
+    borderColor: Colors.primaryLight,
     overflow: 'hidden',
   },
   sliderImage: {
@@ -513,7 +527,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   paginationDotActive: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     width: 28,
     height: 8,
     borderRadius: 4,
@@ -523,13 +537,37 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 20,
     borderLeftWidth: 4,
-    borderLeftColor: '#A5D6A7',
+    borderLeftColor: Colors.primary,
   },
   aboutText: {
     fontSize: 15,
     color: '#5A6C7D',
     lineHeight: 24,
     letterSpacing: 0.2,
+    marginBottom: 14,
+  },
+  aboutTagline: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#2C3E50',
+    marginTop: 4,
+    marginBottom: 16,
+  },
+  aboutLinks: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  aboutLink: {
+    fontSize: 15,
+    color: Colors.primary,
+    fontWeight: '600',
+    textDecorationLine: 'underline',
+  },
+  aboutLinkDivider: {
+    fontSize: 15,
+    color: '#5A6C7D',
+    marginHorizontal: 4,
   },
   tutorialImage: {
     width: '100%',
@@ -560,13 +598,13 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
     borderWidth: 1.5,
-    borderColor: '#E8F5E9',
+    borderColor: Colors.primaryLight,
   },
   instagramButton: {
-    borderColor: '#E8F5E9',
+    borderColor: Colors.primaryLight,
   },
   tiktokButton: {
-    borderColor: '#E8F5E9',
+    borderColor: Colors.primaryLight,
   },
   socialButtonContent: {
     alignItems: 'center',

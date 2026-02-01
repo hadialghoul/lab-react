@@ -5,9 +5,51 @@
 '6758167596' is not a valid ID for this relationship
 ```
 
-## Common Causes & Solutions
+## ⚠️ MOST LIKELY CAUSE: API Key from Wrong Apple Account
 
-### ✅ Solution 1: Fix Bundle ID in App Store Connect (MOST COMMON)
+**The App Store Connect API key EAS is using was created by a different Apple account than the one that owns the app.**
+
+- Your app (SMILEREIGN, ID 6758167596) is under **Cal West Dental** (CalWestDentalLab@att.net, team X5FRZP29C6).
+- The API key stored in EAS (`[Expo] EAS Submit BuJqrRv4x3`) was probably created under **another account** (e.g. hadialghoul’s Expo/Apple account).
+- Apple only allows an API key to submit to apps that belong to **the same App Store Connect account** that created the key. So Apple rejects the app ID.
+
+### Fix: Use an API key from the account that owns the app
+
+1. **Log in to App Store Connect with the account that owns the app**  
+   Use **CalWestDentalLab@att.net** (the same Apple ID as in your `eas.json`).
+
+2. **Create an App Store Connect API key in that account**  
+   - App Store Connect → **Users and Access** → **Keys** tab → **App Store Connect API**.  
+   - Click **+** to generate a new key.  
+   - Name it (e.g. `EAS Submit`).  
+   - Role: **App Manager** or **Admin**.  
+   - Download the **.p8** file once (you can’t download it again).  
+   - Note the **Key ID** and **Issuer ID** (from the Keys page).
+
+3. **Add this key to EAS** (so submission uses Cal West’s key, not the other account’s):
+   ```bash
+   eas credentials
+   ```
+   - Choose **iOS** → **production** (or the profile you submit with).  
+   - Go to **App Store Connect API Key** and add the new key (upload .p8, enter Key ID and Issuer ID).  
+   Or use:
+   ```bash
+   eas credentials --platform ios
+   ```
+   and follow the prompts to set the App Store Connect API Key for the correct account.
+
+4. **Submit again:**
+   ```bash
+   npx eas-cli submit -p ios --profile production
+   ```
+
+The key must be created and stored under the **same** App Store Connect account that owns the app (Cal West Dental). Once EAS uses that key, the “not a valid ID for this relationship” error should stop.
+
+---
+
+## Other Causes & Solutions
+
+### ✅ Solution 1: Fix Bundle ID in App Store Connect
 
 **The Problem:** The Bundle ID in App Store Connect doesn't match your build's Bundle ID.
 

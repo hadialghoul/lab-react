@@ -158,7 +158,7 @@ export default function PatientRegister({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F5E9',
+    backgroundColor: Colors.primaryLight,
   },
   mainWrapper: {
     flex: 1,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    color: '#5A6C7D',
+    color: Colors.textSecondary,
     textAlign: 'center',
   },
   formCard: {
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   registerButton: {
-    backgroundColor: '#A5D6A7',
+    backgroundColor: Colors.primary,
     borderRadius: 12,
     height: 56,
     justifyContent: 'center',
@@ -253,12 +253,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loginText: {
-    color: '#5A6C7D',
+    color: Colors.textSecondary,
     fontSize: 15,
   },
   footer: {
     textAlign: 'center',
-    color: '#5A6C7D',
+    color: Colors.textSecondary,
     fontSize: 14,
     marginTop: 40,
     marginBottom: 20,
