@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './theme/colors';
 import ErrorBoundary from './components/ErrorBoundary';
 import Config from './config';
+
+const CRASH_STORAGE_KEY = '@smilereign_last_crash';
 
 const theme = Colors?.primary ? Colors : { primary: '#C8E6C9', primaryLight: '#C8E6C9', primaryLighter: '#C8E6C9' };
 import MainScreen from './Screens/mainScreen';
@@ -42,11 +45,21 @@ const WakeUpBackend = () => {
   return null;
 };
 
+const LogLastCrash = () => {
+  useEffect(() => {
+    AsyncStorage.getItem(CRASH_STORAGE_KEY)
+      .then((saved) => { if (saved) console.error('--- Last SmileReign crash ---\n', saved); })
+      .catch(() => {});
+  }, []);
+  return null;
+};
+
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
     <ErrorBoundary>
       <NavigationContainer>
+        <LogLastCrash />
         <WakeUpBackend />
       <Stack.Navigator
         screenOptions={{
