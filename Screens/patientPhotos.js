@@ -681,9 +681,8 @@ export default function PatientPhotos() {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+      {/* Subtitle and patient name below nav bar */}
       <View style={styles.header}>
-        <Text style={styles.title}>{stepName}</Text>
         <Text style={styles.subtitle}>Treatment Step Photos</Text>
         <Text style={styles.patientName}>Patient: {patientName}</Text>
       </View>
@@ -797,12 +796,6 @@ const styles = StyleSheet.create({
     padding: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#111',
-    marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,

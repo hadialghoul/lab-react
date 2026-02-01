@@ -72,19 +72,18 @@ export default function App() {
         }}
       >
         <Stack.Screen name="main" component={MainScreen} />
-        <Stack.Screen name="login-patient" component={PatientLogin} />
-        <Stack.Screen name="login-doctor" component={DoctorLogin} />
-        <Stack.Screen name="register-patient" component={PatientRegister} />
-        <Stack.Screen name="activate" component={ActivationScreen} />
-        <Stack.Screen name="doctor" component={DoctorScreen} />
-        <Stack.Screen name="patient" component={PatientScreen} />
-        <Stack.Screen name="PatientStepsScreen" component={PatientStepsScreen} />
-        <Stack.Screen name="qr-scanner" component={QRScannerScreen} />
-        <Stack.Screen name="custom-camera" component={CustomCameraScreen} />
-        <Stack.Screen name="doctor-patient-steps" component={DoctorPatientSteps} />
-        <Stack.Screen name="patient-stage" component={PatientStageScreen} />
-        <Stack.Screen name="patient-photos" component={PatientPhotos} />
-   
+        <Stack.Screen name="login-patient" component={PatientLogin} options={{ headerShown: true, title: 'Patient Login' }} />
+        <Stack.Screen name="login-doctor" component={DoctorLogin} options={{ headerShown: true, title: 'Doctor Login' }} />
+        <Stack.Screen name="register-patient" component={PatientRegister} options={{ headerShown: true, title: 'Register' }} />
+        <Stack.Screen name="activate" component={ActivationScreen} options={{ headerShown: true, title: 'Activation' }} />
+        <Stack.Screen name="doctor" component={DoctorScreen} options={{ headerShown: true, title: 'Doctor' }} />
+        <Stack.Screen name="patient" component={PatientScreen} options={{ headerShown: true, title: 'Patient' }} />
+        <Stack.Screen name="PatientStepsScreen" component={PatientStepsScreen} options={{ headerShown: true, title: 'Treatment Steps' }} />
+        <Stack.Screen name="qr-scanner" component={QRScannerScreen} options={{ headerShown: true, title: 'Scan QR' }} />
+        <Stack.Screen name="custom-camera" component={CustomCameraScreen} options={{ headerShown: true, title: 'Camera' }} />
+        <Stack.Screen name="doctor-patient-steps" component={DoctorPatientSteps} options={{ headerShown: true, title: 'Patient Steps' }} />
+        <Stack.Screen name="patient-stage" component={PatientStageScreen} options={{ headerShown: true, title: 'Step' }} />
+        <Stack.Screen name="patient-photos" component={PatientPhotos} options={{ headerShown: true, title: 'Photos' }} />
       </Stack.Navigator>
       </NavigationContainer>
     </ErrorBoundary>

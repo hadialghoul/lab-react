@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Image } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PatientTreatmentScreen from './patientTreatmentScreen';
@@ -19,6 +19,16 @@ const Tab = createBottomTabNavigator();
 
 export default function DoctorScreen() {
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={handleLogout} style={{ marginRight: 15, padding: 8 }}>
+          <Text style={{ color: Colors.primary, fontSize: 16, fontWeight: '600' }}>Logout</Text>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   const handleLogout = async () => {
     Alert.alert(
@@ -44,6 +54,7 @@ export default function DoctorScreen() {
   return (
     <Tab.Navigator 
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#8E8E93",
         tabBarStyle: {
@@ -67,21 +78,6 @@ export default function DoctorScreen() {
         tabBarIconStyle: {
           marginTop: 4,
         },
-        headerLeft: () => (
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 15 }}>
-            <Image source={require('../assets/icon (2).jpeg')} style={{ width: 32, height: 32, borderRadius: 8, marginRight: 8 }} />
-            <Text style={{ fontSize: 20, fontWeight: '700', color: '#2C3E50' }}>SmileReign</Text>
-          </View>
-        ),
-        headerTitle: '',
-        headerRight: () => (
-          <TouchableOpacity
-            onPress={handleLogout}
-            style={{ marginRight: 15, padding: 8 }}
-          >
-            <Text style={{ color: Colors.primary, fontSize: 16, fontWeight: '600' }}>Logout</Text>
-          </TouchableOpacity>
-        ),
       }}
     >
       <Tab.Screen 
