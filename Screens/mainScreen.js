@@ -1,7 +1,6 @@
 import { StyleSheet, View, Image, Text, Dimensions, StatusBar, TouchableOpacity, Linking, Platform } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { WebView } from 'react-native-webview';
 import Colors from '../theme/colors';
 
 const win = Dimensions.get('window') || {};
@@ -15,72 +14,36 @@ const safe = {
     primary: Colors?.primary ?? '#C8E6C9',
 };
 
-// HTML for iOS WebView card – avoids native Text/CoreText crash on iOS 26
-const CARD_HTML = `
-<!DOCTYPE html>
-<html><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /></head>
-<body style="margin:0;padding:0;background:transparent;font-family:-apple-system,BlinkMacSystemFont,sans-serif;-webkit-tap-highlight-color:transparent">
-  <div style="display:flex;align-items:center;margin-bottom:24px">
-    <h1 style="margin:0;font-size:24px;font-weight:700;color:${safe.text}">SmileReign</h1>
-  </div>
-  <button type="button" onclick="window.ReactNativeWebView.postMessage('login-doctor')" style="width:100%;max-width:${width - 56}px;height:52px;margin-bottom:14px;border:0;border-radius:14px;background:${safe.primary};color:${safe.text};font-size:17px;font-weight:600;cursor:pointer">Login</button>
-  <button type="button" onclick="window.ReactNativeWebView.postMessage('register-patient')" style="width:100%;max-width:${width - 56}px;height:52px;margin-bottom:14px;border:0;border-radius:14px;background:${safe.primary};color:${safe.text};font-size:17px;font-weight:600;cursor:pointer">Create account</button>
-  <a href="#" onclick="window.ReactNativeWebView.postMessage('privacy');return false" style="display:inline-block;margin-top:24px;font-size:14px;color:${safe.textMuted};text-decoration:none">Privacy Policy</a>
-</body></html>
-`;
-
 export default function MainScreen() {
     const navigation = useNavigation();
 
-    const handleWebViewMessage = (event) => {
-        const action = event.nativeEvent?.data;
-        if (action === 'login-doctor') navigation.navigate('login-doctor');
-        else if (action === 'register-patient') navigation.navigate('register-patient');
-        else if (action === 'privacy') Linking.openURL('https://smilereign.com/privacy-policy-1');
-    };
+    // iOS: minimal screen to find crash – no Image, Text, or WebView. If this doesn't crash, add content back.
+    if (Platform.OS === 'ios') {
+        return <View style={styles.container} />;
+    }
 
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
-
             <Image style={styles.backgroundImage} source={require('../assets/main.jpeg')} resizeMode="cover" />
-
             <View style={styles.card}>
-                {Platform.OS === 'ios' ? (
-                    <>
-                        <View style={styles.logoRow}>
-                            <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
-                        </View>
-                        <WebView
-                            source={{ html: CARD_HTML }}
-                            style={styles.webViewCard}
-                            scrollEnabled={false}
-                            showsVerticalScrollIndicator={false}
-                            onMessage={handleWebViewMessage}
-                            originWhitelist={['*']}
-                        />
-                    </>
-                ) : (
-                    <>
-                        <View style={styles.logoRow}>
-                            <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
-                            <Text style={styles.appName} allowFontScaling={false}>SmileReign</Text>
-                        </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
-                            <View style={[styles.button, styles.primaryButton]}>
-                                <Text style={styles.buttonText} allowFontScaling={false}>Login</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('register-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
-                            <View style={[styles.button, styles.primaryButton]}>
-                                <Text style={styles.buttonText} allowFontScaling={false}>Create account</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
-                            <Text style={styles.footerText} allowFontScaling={false}>Privacy Policy</Text>
-                        </TouchableOpacity>
-                    </>
-                )}
+                <View style={styles.logoRow}>
+                    <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
+                    <Text style={styles.appName} allowFontScaling={false}>SmileReign</Text>
+                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
+                    <View style={[styles.button, styles.primaryButton]}>
+                        <Text style={styles.buttonText} allowFontScaling={false}>Login</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('register-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
+                    <View style={[styles.button, styles.primaryButton]}>
+                        <Text style={styles.buttonText} allowFontScaling={false}>Create account</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
+                    <Text style={styles.footerText} allowFontScaling={false}>Privacy Policy</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
