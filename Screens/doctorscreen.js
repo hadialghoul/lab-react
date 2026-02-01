@@ -69,7 +69,7 @@ export default function DoctorScreen() {
         },
         headerLeft: () => (
           <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 15 }}>
-            <Image source={require('../assets/icon.jpeg')} style={{ width: 32, height: 32, borderRadius: 8, marginRight: 8 }} />
+            <Image source={require('../assets/icon (2).jpeg')} style={{ width: 32, height: 32, borderRadius: 8, marginRight: 8 }} />
             <Text style={{ fontSize: 20, fontWeight: '700', color: '#2C3E50' }}>SmileReign</Text>
           </View>
         ),

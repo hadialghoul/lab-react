@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { registerRootComponent } from 'expo';
 
 /**
  * Bootstrap: load App in a try/catch so if the app crashes BEFORE opening
  * (e.g. during import of App.js or its screens), we show the error on screen
- * instead of a white crash. TestFlight users will see WHY it crashed.
- *
- * iOS crash finder: on iOS we show ONLY a green View and never load App.
- * If it still crashes → problem is native/Expo. If it doesn't → problem is in App/navigator.
+ * instead of a white crash.
  */
 function Bootstrap() {
   const [AppComponent, setAppComponent] = useState(null);
   const [loadError, setLoadError] = useState(null);
-
-  // iOS: skip loading App entirely – only a green View. No Text, no navigator, no screens.
-  if (Platform.OS === 'ios') {
-    return <View style={styles.splash} />;
-  }
 
   useEffect(() => {
     try {
@@ -42,11 +34,9 @@ function Bootstrap() {
   }
 
   if (!AppComponent) {
-    if (__DEV__) console.warn('[SmileReign] Bootstrap: showing splash (App not loaded yet)');
     return <View style={styles.splash} />;
   }
 
-  if (__DEV__) console.warn('[SmileReign] Bootstrap: rendering App');
   return <AppComponent />;
 }
 

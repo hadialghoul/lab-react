@@ -23,7 +23,7 @@ export default function MainScreen() {
             <Image style={styles.backgroundImage} source={require('../assets/main.jpeg')} resizeMode="cover" />
             <View style={styles.card}>
                 <View style={styles.logoRow}>
-                    <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
+                    <Image style={styles.logo} source={require('../assets/icon (2).jpeg')} resizeMode="contain" />
                     <Text style={styles.appName}>SmileReign</Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
@@ -47,7 +47,7 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: safe.bg,
+        backgroundColor: safe.bg && safe.bg !== '#FFFFFF' ? safe.bg : '#C8E6C9',
     },
     backgroundImage: {
         position: 'absolute',

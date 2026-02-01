@@ -79,7 +79,7 @@ export default function PatientLogin({ navigation }) {
               <Text style={styles.backText}>{'<'} Back</Text>
             </TouchableOpacity>
             
-            <Image source={require('../assets/icon.jpeg')} style={styles.logo} />
+            <Image source={require('../assets/icon (2).jpeg')} style={styles.logo} />
           </View>
 
           {/* Title Section */}
