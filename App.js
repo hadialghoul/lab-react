@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -33,6 +34,8 @@ if (!__DEV__) {
 
 const WakeUpBackend = () => {
   useEffect(() => {
+    // Skip on web when backend may be unreachable (avoids ERR_CONNECTION_REFUSED in network tab)
+    if (Platform.OS === 'web') return;
     try {
       const url = Config?.BASE_URL ? `${Config.BASE_URL}/accounts/me/` : null;
       if (url) {
@@ -55,10 +58,11 @@ const LogLastCrash = () => {
 };
 
 export default function App() {
+  if (__DEV__) console.warn('[SmileReign] App: mounted');
   const Stack = createStackNavigator();
   return (
     <ErrorBoundary>
-      <NavigationContainer>
+      <NavigationContainer onReady={() => __DEV__ && console.warn('[SmileReign] App: NavigationContainer ready')}>
         <LogLastCrash />
         <WakeUpBackend />
       <Stack.Navigator

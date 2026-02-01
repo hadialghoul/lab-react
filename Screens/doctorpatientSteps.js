@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Config from '../config';
 import CachedImage from '../components/CachedImage';
+import Colors from '../theme/colors';
 
 const BASE_URL = Config.BASE_URL; // Dynamic URL based on environment
 const REQUEST_TIMEOUT_MS = 7000;

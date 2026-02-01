@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Text, Dimensions, StatusBar, TouchableOpacity, Linking, Platform } from 'react-native';
+import { StyleSheet, View, Image, Text, Dimensions, StatusBar, TouchableOpacity, Linking } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Colors from '../theme/colors';
@@ -17,11 +17,6 @@ const safe = {
 export default function MainScreen() {
     const navigation = useNavigation();
 
-    // iOS: minimal screen to find crash – no Image, Text, or WebView. If this doesn't crash, add content back.
-    if (Platform.OS === 'ios') {
-        return <View style={styles.container} />;
-    }
-
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
@@ -29,20 +24,20 @@ export default function MainScreen() {
             <View style={styles.card}>
                 <View style={styles.logoRow}>
                     <Image style={styles.logo} source={require('../assets/icon.jpeg')} resizeMode="contain" />
-                    <Text style={styles.appName} allowFontScaling={false}>SmileReign</Text>
+                    <Text style={styles.appName}>SmileReign</Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText} allowFontScaling={false}>Login</Text>
+                        <Text style={styles.buttonText}>Login</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('register-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText} allowFontScaling={false}>Create account</Text>
+                        <Text style={styles.buttonText}>Create account</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
-                    <Text style={styles.footerText} allowFontScaling={false}>Privacy Policy</Text>
+                    <Text style={styles.footerText}>Privacy Policy</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -85,16 +80,10 @@ const styles = StyleSheet.create({
         height: 48,
         marginRight: 12,
     },
-    webViewCard: {
-        flex: 1,
-        width: '100%',
-        backgroundColor: 'transparent',
-        minHeight: 200,
-    },
     appName: {
         fontSize: 24,
+        fontWeight: '700',
         color: safe.text,
-        ...(Platform.OS === 'ios' && { fontFamily: 'System' }),
     },
     buttonWrap: {
         width: '100%',
@@ -115,7 +104,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: safe.text,
         fontSize: 17,
-        ...(Platform.OS === 'ios' && { fontFamily: 'System' }),
+        fontWeight: '600',
     },
     footerLink: {
         marginTop: 24,
@@ -123,6 +112,5 @@ const styles = StyleSheet.create({
     footerText: {
         color: safe.textMuted,
         fontSize: 14,
-        fontFamily: Platform.OS === 'ios' ? 'System' : undefined,
     },
 });

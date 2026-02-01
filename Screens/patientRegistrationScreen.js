@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Image, ScrollView } from "react-native";
 import axios from "axios";
 import Config from '../config';
+import Colors from '../theme/colors';
 
 export default function PatientRegister({ navigation }) {
   const [username, setUsername] = useState('');

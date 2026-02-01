@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { CameraView, Camera } from 'expo-camera';
 import { MaterialIcons } from '@expo/vector-icons';
+import Colors from '../theme/colors';
 
 export default function QRScannerScreen({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);

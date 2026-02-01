@@ -3,6 +3,7 @@ import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvo
 import { Button } from "react-native-elements";
 import axios from "axios";
 import Config from '../config';
+import Colors from '../theme/colors';
 
 export default function ActivationScreen({ navigation }) {
   const [code, setCode] = useState('');
