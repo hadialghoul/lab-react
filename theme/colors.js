@@ -1,15 +1,13 @@
 /**
- * App color palette – #C8E6C9 used everywhere except main text and cards.
- * Cards stay white; text uses text / textSecondary / textMuted.
+ * App color palette. Use these keys in styles.
+ * All values must be valid hex strings (#RRGGBB). Undefined or invalid colors
+ * can crash iOS native text layout (CoreText), so mainScreen uses safe fallbacks.
  */
 export default {
-  // #C8E6C9 – buttons, backgrounds, borders, accents (not cards, not main text)
   primary: '#C8E6C9',
   primaryLight: '#C8E6C9',
   primaryLighter: '#C8E6C9',
-  // Cards only
   white: '#FFFFFF',
-  // Main text only (unchanged)
   text: '#2C3E50',
   textSecondary: '#5A6C7D',
   textMuted: '#7F8C8D',
