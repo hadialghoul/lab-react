@@ -28,12 +28,12 @@ export default function MainScreen() {
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}> Patient Login</Text>
+                        <Text style={styles.buttonText}> Doctor Login</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('login-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}>Doctor Login </Text>
+                        <Text style={styles.buttonText}>Patient Login </Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
