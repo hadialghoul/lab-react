@@ -80,7 +80,7 @@ export default function DoctorLogin({ navigation }) {
               <Text style={styles.backText}>{'<'} Back</Text>
             </TouchableOpacity>
             
-            <Image source={require('../assets/icon (2).jpeg')} style={styles.logo} />
+            <Image source={require('../assets/icon3.pdf.png')} style={styles.logo} />
           </View>
 
           {/* Title Section */}

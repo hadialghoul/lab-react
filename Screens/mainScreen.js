@@ -23,17 +23,17 @@ export default function MainScreen() {
             <Image style={styles.backgroundImage} source={require('../assets/main.jpeg')} resizeMode="cover" />
             <View style={styles.card}>
                 <View style={styles.logoRow}>
-                    <Image style={styles.logo} source={require('../assets/icon (2).jpeg')} resizeMode="contain" />
+                    <Image style={styles.logo} source={require('../assets/icon3.pdf.png')} resizeMode="contain" />
                     <Text style={styles.appName}>SmileReign</Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}>Login</Text>
+                        <Text style={styles.buttonText}> Patient Login</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('register-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
+                <TouchableOpacity onPress={() => navigation.navigate('login-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}>Create account</Text>
+                        <Text style={styles.buttonText}>Doctor Login </Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
