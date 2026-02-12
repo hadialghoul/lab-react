@@ -257,7 +257,7 @@ export default function DashboardScreen() {
             <Text style={styles.aboutTagline}>SmileReign — powered by CalWest Dental Lab.</Text>
             <View style={styles.aboutLinks}>
               <TouchableOpacity onPress={openInstagram} activeOpacity={0.7}>
-                <Text style={styles.aboutLink}>Instagram</Text>
+                <Text style={styles.aboutLink}>Instagram Reels</Text>
               </TouchableOpacity>
               <Text style={styles.aboutLinkDivider}> • </Text>
               <TouchableOpacity onPress={openTikTok} activeOpacity={0.7}>
@@ -282,8 +282,8 @@ export default function DashboardScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.socialButtonContent}>
-                <Text style={styles.socialIcon}>📷</Text>
-                <Text style={styles.socialText}>Instagram</Text>
+                <Text style={styles.socialIcon}>📹</Text>
+                <Text style={styles.socialText}>Instagram Reels</Text>
               </View>
             </TouchableOpacity>
             

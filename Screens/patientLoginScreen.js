@@ -73,12 +73,9 @@ export default function PatientLogin({ navigation }) {
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.mainWrapper}>
-          {/* Back Button and Logo */}
+          {/* Logo */}
           <View style={styles.topBar}>
-            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-              <Text style={styles.backText}>{'<'} Back</Text>
-            </TouchableOpacity>
-            
+            <View style={styles.backButton} />
             <Image source={require('../assets/icon3.pdf.png')} style={styles.logo} />
           </View>
 

@@ -23,17 +23,19 @@ export default function MainScreen() {
             <Image style={styles.backgroundImage} source={require('../assets/main.jpeg')} resizeMode="cover" />
             <View style={styles.card}>
                 <View style={styles.logoRow}>
-                    <Image style={styles.logo} source={require('../assets/icon3.pdf.png')} resizeMode="contain" />
+                    <View style={styles.logoWrapper}>
+                        <Image style={styles.logo} source={require('../assets/icon4.jpg')} resizeMode="contain" />
+                    </View>
                     <Text style={styles.appName}>SmileReign</Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('login-doctor')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}> Doctor Login</Text>
+                        <Text style={styles.buttonText}>Doctor Login</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('login-patient')} activeOpacity={0.8} style={styles.buttonWrap}>
                     <View style={[styles.button, styles.primaryButton]}>
-                        <Text style={styles.buttonText}>Patient Login </Text>
+                        <Text style={styles.buttonText}>Patient Login</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Linking.openURL('https://smilereign.com/privacy-policy-1')} activeOpacity={0.7} style={styles.footerLink}>
@@ -75,13 +77,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 32,
     },
+    logoWrapper: {
+        backgroundColor: '#FFFFFF',
+        padding: 10,
+        borderRadius: 12,
+        marginRight: 14,
+    },
     logo: {
-        width: 48,
-        height: 48,
-        marginRight: 12,
+        width: 56,
+        height: 56,
     },
     appName: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: '700',
         color: safe.text,
     },
@@ -105,6 +112,7 @@ const styles = StyleSheet.create({
         color: safe.text,
         fontSize: 17,
         fontWeight: '600',
+        textAlign: 'center',
     },
     footerLink: {
         marginTop: 24,
