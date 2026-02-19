@@ -71,7 +71,7 @@ export default function PatientRegister({ navigation }) {
           {/* Logo */}
           <View style={styles.topBar}>
             <View style={styles.backButton} />
-            <Image source={require('../assets/icon3.pdf.png')} style={styles.logo} />
+            <Image source={require('../assets/icon4.jpg')} style={styles.logo} />
           </View>
 
           {/* Title Section */}

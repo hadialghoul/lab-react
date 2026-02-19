@@ -76,8 +76,8 @@ export default function App() {
         <Stack.Screen name="login-doctor" component={DoctorLogin} options={{ headerShown: true, title: 'Doctor Login', headerBackTitle: '' }} />
         <Stack.Screen name="register-patient" component={PatientRegister} options={{ headerShown: true, title: 'Register', headerBackTitle: '' }} />
         <Stack.Screen name="activate" component={ActivationScreen} options={{ headerShown: true, title: 'Activation' }} />
-        <Stack.Screen name="doctor" component={DoctorScreen} options={{ headerShown: true, title: 'Doctor', headerBackTitle: '' }} />
-        <Stack.Screen name="patient" component={PatientScreen} options={{ headerShown: true, title: 'Patient', headerBackTitle: '' }} />
+        <Stack.Screen name="doctor" component={DoctorScreen} options={{ headerShown: true, title: 'Doctor', headerBackVisible: false, headerLeft: () => null }} />
+        <Stack.Screen name="patient" component={PatientScreen} options={{ headerShown: true, title: 'Patient', headerBackVisible: false, headerLeft: () => null }} />
         <Stack.Screen name="PatientStepsScreen" component={PatientStepsScreen} options={{ headerShown: true, title: 'Treatment Steps' }} />
         <Stack.Screen name="qr-scanner" component={QRScannerScreen} options={{ headerShown: true, title: 'Scan QR' }} />
         <Stack.Screen name="custom-camera" component={CustomCameraScreen} options={{ headerShown: true, title: 'Camera' }} />

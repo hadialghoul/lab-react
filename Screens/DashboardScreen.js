@@ -282,7 +282,7 @@ export default function DashboardScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.socialButtonContent}>
-                <Text style={styles.socialIcon}>📹</Text>
+                <Image source={require('../assets/instagram.png')} style={styles.socialIconImage} resizeMode="contain" />
                 <Text style={styles.socialText}>Instagram Reels</Text>
               </View>
             </TouchableOpacity>
@@ -293,7 +293,7 @@ export default function DashboardScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.socialButtonContent}>
-                <Text style={styles.socialIcon}>🎵</Text>
+                <Image source={require('../assets/tiktok.png')} style={styles.socialIconImage} resizeMode="contain" />
                 <Text style={styles.socialText}>TikTok</Text>
               </View>
             </TouchableOpacity>
@@ -611,6 +611,11 @@ const styles = StyleSheet.create({
   },
   socialIcon: {
     fontSize: 36,
+    marginBottom: 10,
+  },
+  socialIconImage: {
+    width: 44,
+    height: 44,
     marginBottom: 10,
   },
   socialText: {
