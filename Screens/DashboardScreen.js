@@ -282,7 +282,7 @@ export default function DashboardScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.socialButtonContent}>
-                <Image source={require('../assets/instagram.png')} style={styles.socialIconImage} resizeMode="contain" />
+                <Image source={require('../assets/insta.webp')} style={styles.socialIconImage} resizeMode="contain" />
                 <Text style={styles.socialText}>Instagram Reels</Text>
               </View>
             </TouchableOpacity>

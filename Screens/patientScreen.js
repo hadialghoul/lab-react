@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Image } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PatientTreatmentScreen from './patientTreatmentScreen';
@@ -19,6 +19,16 @@ export default function PatientScreen({ route }) {
   // Get parameters passed from login
   const { patientId, patientName } = route.params || {};
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={handleLogout} style={{ marginRight: 15, padding: 8 }}>
+          <Text style={{ color: Colors.primary, fontSize: 16, fontWeight: '600' }}>Logout</Text>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   const handleLogout = async () => {
     Alert.alert(
