@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Image, ScrollView } from "react-native";
+import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
 import axios from "axios";
 import Config from '../config';
 import Colors from '../theme/colors';
@@ -68,12 +68,6 @@ export default function PatientRegister({ navigation }) {
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.mainWrapper}>
-          {/* Logo */}
-          <View style={styles.topBar}>
-            <View style={styles.backButton} />
-            <Image source={require('../assets/icon4.jpg')} style={styles.logo} />
-          </View>
-
           {/* Title Section */}
           <View style={styles.titleSection}>
             <Text style={styles.title}>Patient Registration</Text>
@@ -84,7 +78,6 @@ export default function PatientRegister({ navigation }) {
           <View style={styles.formCard}>
             {/* Username Input */}
             <View style={styles.inputContainer}>
-              <Text style={styles.inputIcon}>👤</Text>
               <TextInput
                 placeholder="Username"
                 style={styles.input}
@@ -96,7 +89,6 @@ export default function PatientRegister({ navigation }) {
 
             {/* Email Input */}
             <View style={styles.inputContainer}>
-              <Text style={styles.inputIcon}>✉️</Text>
               <TextInput
                 placeholder="Email Address"
                 style={styles.input}
@@ -109,7 +101,6 @@ export default function PatientRegister({ navigation }) {
 
             {/* Password Input */}
             <View style={styles.inputContainer}>
-              <Text style={styles.inputIcon}>🔒</Text>
               <TextInput
                 placeholder="Password"
                 secureTextEntry
@@ -121,7 +112,6 @@ export default function PatientRegister({ navigation }) {
 
             {/* Confirm Password Input */}
             <View style={styles.inputContainer}>
-              <Text style={styles.inputIcon}>🔒</Text>
               <TextInput
                 placeholder="Confirm Password"
                 secureTextEntry
@@ -162,29 +152,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
-  topBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    marginBottom: 30,
-  },
   titleSection: {
     alignItems: 'center',
     marginBottom: 30,
-  },
-  backButton: {
-    padding: 8,
-  },
-  backText: {
-    fontSize: 18,
-    color: '#2C3E50',
-    fontWeight: '600',
-  },
-  logo: {
-    width: 44,
-    height: 44,
-    borderRadius: 10,
   },
   title: {
     fontSize: 32,
@@ -217,10 +187,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginBottom: 20,
     height: 56,
-  },
-  inputIcon: {
-    fontSize: 20,
-    marginRight: 12,
   },
   input: {
     flex: 1,

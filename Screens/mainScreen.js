@@ -73,15 +73,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoRow: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
         marginBottom: 32,
     },
     logoWrapper: {
         backgroundColor: '#FFFFFF',
         padding: 10,
         borderRadius: 12,
-        marginRight: 14,
+        marginBottom: 12,
     },
     logo: {
         width: 72,
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: '700',
         color: safe.text,
+        textAlign: 'center',
     },
     buttonWrap: {
         width: '100%',

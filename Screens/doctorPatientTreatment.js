@@ -195,7 +195,7 @@ export default function DoctorPatientTreatmentScreen() {
           style: 'cancel'
         },
         {
-          text: 'Treatment Steps',
+          text: 'SmileReign Treatment',
           onPress: () => {
             navigation.navigate('doctor-patient-steps', { 
               patientId: patient.id,
@@ -204,7 +204,7 @@ export default function DoctorPatientTreatmentScreen() {
           }
         },
         {
-          text: 'Patient Stage',
+          text: 'Case Progress',
           onPress: () => {
             navigation.navigate('patient-stage', { 
               patientId: patient.id,

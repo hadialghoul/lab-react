@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
+import { Alert, StyleSheet, TextInput, TouchableOpacity, Text, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform, ScrollView } from "react-native";
 import { Button } from "react-native-elements";
 import axios from "axios";
 import Config from '../config';
@@ -43,9 +43,17 @@ export default function ActivationScreen({ navigation }) {
   };
   
   return (
-    <KeyboardAvoidingView style={styles.containerView} behavior="padding">
+    <KeyboardAvoidingView
+      style={styles.containerView}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 0}
+    >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.loginScreenContainer}>
+        <ScrollView
+          contentContainerStyle={styles.loginScreenContainer}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.loginFormView}>
             <Text style={styles.logoText}>Patient Registration</Text>
             
@@ -59,7 +67,7 @@ export default function ActivationScreen({ navigation }) {
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
             <Button title="Verify" onPress={handleVerify} buttonStyle={styles.loginButton} />
           </View>
-        </View>
+        </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
@@ -72,12 +80,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryLight,
   },
   loginScreenContainer: {
-    flex: 1,
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   logoText: {
     fontSize: 40,
     fontWeight: "800",
-    marginTop: 150,
+    marginTop: 20,
     marginBottom: 30,
     textAlign: "center",
   },

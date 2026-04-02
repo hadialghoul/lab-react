@@ -84,8 +84,12 @@ export default function DoctorScreen() {
         name="Dashboard" 
         component={DashboardScreen}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <Text style={{ fontSize: 28 }}>{focused ? '🏠' : '🏡'}</Text>
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/2.jpg')}
+              style={{ width: 26, height: 26, borderRadius: 6 }}
+              resizeMode="cover"
+            />
           ),
         }}
       />
@@ -93,8 +97,12 @@ export default function DoctorScreen() {
         name="Patients" 
         component={DoctorPatientTreatmentScreen}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <Text style={{ fontSize: 28 }}>{focused ? '👥' : '👤'}</Text>
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/4.jpg')}
+              style={{ width: 26, height: 26, borderRadius: 6 }}
+              resizeMode="cover"
+            />
           ),
         }}
       />
@@ -102,8 +110,12 @@ export default function DoctorScreen() {
         name="Reports" 
         component={DoctorReportsScreen}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <Text style={{ fontSize: 28 }}>{focused ? '📊' : '📈'}</Text>
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/3.jpg')}
+              style={{ width: 26, height: 26, borderRadius: 6 }}
+              resizeMode="cover"
+            />
           ),
         }}
       />

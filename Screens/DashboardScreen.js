@@ -255,24 +255,12 @@ export default function DashboardScreen() {
               At the end of the day, SmileReign isn't just about technology. It's about making the process feel easier, more transparent, and more human—so everyone involved can focus on what matters most: creating beautiful, confident smiles.
             </Text>
             <Text style={styles.aboutTagline}>SmileReign — powered by CalWest Dental Lab.</Text>
-            <View style={styles.aboutLinks}>
-              <TouchableOpacity onPress={openInstagram} activeOpacity={0.7}>
-                <Text style={styles.aboutLink}>Instagram Reels</Text>
-              </TouchableOpacity>
-              <Text style={styles.aboutLinkDivider}> • </Text>
-              <TouchableOpacity onPress={openTikTok} activeOpacity={0.7}>
-                <Text style={styles.aboutLink}>TikTok</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </View>
 
         {/* Follow Us Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeaderCenter}>
-            <View style={styles.sectionIconContainer}>
-              <Text style={styles.sectionIcon}>📱</Text>
-            </View>
             <Text style={styles.sectionTitleCenter}>Follow us on</Text>
           </View>
           <View style={styles.socialContainer}>
@@ -282,8 +270,8 @@ export default function DashboardScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.socialButtonContent}>
-                <Image source={require('../assets/insta.webp')} style={styles.socialIconImage} resizeMode="contain" />
-                <Text style={styles.socialText}>Instagram Reels</Text>
+                <Image source={require('../assets/insta2.webp')} style={styles.socialIconImage} resizeMode="contain" />
+                <Text style={styles.socialText}>Instagram</Text>
               </View>
             </TouchableOpacity>
             
@@ -553,22 +541,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 16,
   },
-  aboutLinks: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  aboutLink: {
-    fontSize: 15,
-    color: Colors.primary,
-    fontWeight: '600',
-    textDecorationLine: 'underline',
-  },
-  aboutLinkDivider: {
-    fontSize: 15,
-    color: '#5A6C7D',
-    marginHorizontal: 4,
-  },
   tutorialImage: {
     width: '100%',
     height: '100%',
@@ -588,10 +560,10 @@ const styles = StyleSheet.create({
   socialButton: {
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
-    paddingVertical: 20,
-    paddingHorizontal: 32,
+    width: 150,
+    height: 130,
     alignItems: 'center',
-    minWidth: 140,
+    justifyContent: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
@@ -623,6 +595,7 @@ const styles = StyleSheet.create({
     color: '#2C3E50',
     fontWeight: '700',
     letterSpacing: 0.3,
+    textAlign: 'center',
   },
 });
 
