@@ -2,7 +2,7 @@
   "expo": {
     "name": "SMILEREIGN",
     "slug": "smilereign",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon3.pdf.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.calwestdental.smilereign",
-      "buildNumber": "55",
+      "buildNumber": "56",
       "infoPlist": {
         "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to take photos and scan QR codes.",
         "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select photos for treatment progress tracking.",
