@@ -87,13 +87,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.hadialghoul.reactLab'
+    namespace 'com.smilereign.reactLab'
     defaultConfig {
-        applicationId 'com.hadialghoul.reactLab'
+        applicationId 'com.smilereign.reactLab'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10
-        versionName "1.0.0"
+        versionCode 11
+        versionName "1.0.2"
     }
     signingConfigs {
         debug {

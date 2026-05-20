@@ -1,4 +1,4 @@
-package com.hadialghoul.reactLab
+package com.smilereign.reactLab
 
 import android.os.Build
 import android.os.Bundle

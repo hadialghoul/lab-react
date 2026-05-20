@@ -15,7 +15,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.calwestdental.smilereign",
-      "buildNumber": "56",
+      "buildNumber": "57",
       "infoPlist": {
         "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to take photos and scan QR codes.",
         "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select photos for treatment progress tracking.",
@@ -29,12 +29,10 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.hadialghoul.reactLab",
-      "versionCode": 10,
+      "package": "com.smilereign.reactLab",
+      "versionCode": 11,
       "permissions": [
         "android.permission.CAMERA",
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.READ_MEDIA_IMAGES",
         "android.permission.RECORD_AUDIO"
       ]
