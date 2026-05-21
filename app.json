@@ -30,7 +30,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.smilereign.reactLab",
-      "versionCode": 11,
+      "versionCode": 12,
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_MEDIA_IMAGES",
