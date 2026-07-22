@@ -4,7 +4,7 @@
     "slug": "smilereign",
     "version": "1.0.2",
     "orientation": "portrait",
-    "icon": "./assets/icon3.pdf.png",
+    "icon": "./assets/SMILEREIGN 1024pix copy 2.pdf.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
     "splash": {
@@ -24,7 +24,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/SMILEREIGN 1024pix copy 2.pdf.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.smilereign.reactLab",
