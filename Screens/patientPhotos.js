@@ -109,88 +109,46 @@ export default function PatientPhotos() {
     }
   };
 
-  // Request camera permissions with better error handling for iOS TestFlight
-  const requestPermissions = async () => {
+  // Request only camera permission. Gallery selection uses the system picker.
+  const requestCameraPermission = async () => {
     try {
-      console.log('🔐 Requesting camera and media library permissions...');
-      
-      // First check current permission status
+      console.log('🔐 Requesting camera permission...');
+
       const currentCameraStatus = await ImagePicker.getCameraPermissionsAsync();
-      const currentLibraryStatus = await ImagePicker.getMediaLibraryPermissionsAsync();
-      
       console.log('📷 Current camera permission:', currentCameraStatus);
-      console.log('🖼️ Current library permission:', currentLibraryStatus);
-      
-      // Only request if not already granted
+
       let cameraPermission = currentCameraStatus;
-      let libraryPermission = currentLibraryStatus;
-      
+
       if (currentCameraStatus.status !== 'granted') {
         cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
         console.log('📷 Camera permission request result:', cameraPermission);
       }
-      
-      if (currentLibraryStatus.status !== 'granted') {
-        libraryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        console.log('🖼️ Media library permission request result:', libraryPermission);
-      }
-      
-      const permissions = {
-        camera: cameraPermission.status === 'granted',
-        library: libraryPermission.status === 'granted',
-      };
-      
-      console.log('✅ Final permissions:', permissions);
-      
+
       // Handle iOS-specific permission issues
       if (Platform.OS === 'ios') {
-        // Check for restricted permissions (common in TestFlight)
-        if (cameraPermission.status === 'restricted' || libraryPermission.status === 'restricted') {
+        if (cameraPermission.status === 'restricted') {
           Alert.alert(
-            'Permissions Restricted', 
-            'Camera and photo library access is restricted on this device. Please check your device restrictions in Settings > Screen Time > Content & Privacy Restrictions.',
+            'Permission Restricted',
+            'Camera access is restricted on this device. Please check your device restrictions in Settings > Screen Time > Content & Privacy Restrictions.',
             [
               { text: 'OK' },
               { text: 'Open Settings', onPress: () => Linking.openURL('app-settings:') }
             ]
           );
-          return { camera: false, library: false };
+          return false;
         }
-        
-        // Handle undetermined status (shouldn't happen but just in case)
-        if (cameraPermission.status === 'undetermined' || libraryPermission.status === 'undetermined') {
+
+        if (cameraPermission.status === 'undetermined') {
           console.log('⚠️ Permission status undetermined, retrying...');
-          // Wait a moment and try again
           await new Promise(resolve => setTimeout(resolve, 500));
-          
-          if (cameraPermission.status === 'undetermined') {
-            cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
-          }
-          if (libraryPermission.status === 'undetermined') {
-            libraryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-          }
+
+          cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
         }
       }
-      
-      // Check if permissions were denied
-      if (cameraPermission.status === 'denied' && libraryPermission.status === 'denied') {
+
+      if (cameraPermission.status === 'denied') {
         Alert.alert(
-          'Permissions Required', 
-          'Both camera and photo library permissions are required to add photos. Please enable them in your device settings.',
-          [
-            { text: 'Cancel', style: 'cancel' },
-            { text: 'Open Settings', onPress: () => {
-              if (Platform.OS === 'ios') {
-                Linking.openURL('app-settings:');
-              } else {
-                Linking.openSettings();
-              }
-            }}
-          ]
-        );
-      } else if (cameraPermission.status === 'denied') {
-        Alert.alert(
-          'Camera Permission Required', 
+          'Camera Permission Required',
           'Camera permission is required to take photos. Please enable it in your device settings.',
           [
             { text: 'Cancel', style: 'cancel' },
@@ -203,28 +161,13 @@ export default function PatientPhotos() {
             }}
           ]
         );
-      } else if (libraryPermission.status === 'denied') {
-        Alert.alert(
-          'Photo Library Permission Required', 
-          'Photo library permission is required to select photos. Please enable it in your device settings.',
-          [
-            { text: 'Cancel', style: 'cancel' },
-            { text: 'Open Settings', onPress: () => {
-              if (Platform.OS === 'ios') {
-                Linking.openURL('app-settings:');
-              } else {
-                Linking.openSettings();
-              }
-            }}
-          ]
-        );
       }
-      
-      return permissions;
+
+      return cameraPermission.status === 'granted';
     } catch (error) {
       console.log('❌ Permission request error:', error);
       Alert.alert('Permission Error', 'Failed to request permissions. Please try again.');
-      return { camera: false, library: false };
+      return false;
     }
   };
 
@@ -257,9 +200,9 @@ export default function PatientPhotos() {
   // Take photo with camera
   const takePhoto = async () => {
     console.log('📷 Taking photo...');
-    
-    const permissions = await requestPermissions();
-    if (!permissions.camera) {
+
+    const hasCameraPermission = await requestCameraPermission();
+    if (!hasCameraPermission) {
       console.log('❌ Camera permission denied');
       Alert.alert('Permission Denied', 'Camera permission is required to take photos. Please enable it in your device settings.');
       return;
@@ -319,22 +262,10 @@ export default function PatientPhotos() {
   // Pick single photo from gallery
   const pickFromGallery = async () => {
     console.log('🖼️ Picking from gallery...');
-    
-    const permissions = await requestPermissions();
-    if (!permissions.library) {
-      console.log('❌ Library permission denied');
-      Alert.alert('Permission Denied', 'Photo library permission is required to select photos. Please enable it in your device settings.');
-      return;
-    }
 
     try {
       console.log('🖼️ Launching image library...');
-      
-      // Add a small delay for iOS TestFlight to ensure permissions are properly set
-      if (Platform.OS === 'ios') {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      
+
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: false,
@@ -390,22 +321,10 @@ export default function PatientPhotos() {
   // Pick multiple photos from gallery
   const pickMultipleFromGallery = async () => {
     console.log('🖼️ Picking multiple photos from gallery...');
-    
-    const permissions = await requestPermissions();
-    if (!permissions.library) {
-      console.log('❌ Library permission denied');
-      Alert.alert('Permission Denied', 'Photo library permission is required to select multiple photos. Please enable it in your device settings.');
-      return;
-    }
 
     try {
       console.log('🖼️ Launching image library for multiple selection...');
-      
-      // Add a small delay for iOS TestFlight to ensure permissions are properly set
-      if (Platform.OS === 'ios') {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      
+
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsMultipleSelection: true,
