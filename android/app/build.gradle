@@ -85,14 +85,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     buildToolsVersion rootProject.ext.buildToolsVersion
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk 36
 
     namespace 'com.smilereign.reactLab'
     defaultConfig {
         applicationId 'com.smilereign.reactLab'
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 19
+        targetSdkVersion 36
+        versionCode 21
         versionName "1.0.2"
     }
     signingConfigs {
