@@ -28,7 +28,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.smilereign.reactLab",
-      "versionCode": 18,
+      "versionCode": 19,
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO"
       ],
